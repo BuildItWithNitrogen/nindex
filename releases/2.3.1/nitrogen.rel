@@ -1,0 +1,17 @@
+%% coding: utf-8
+%% rel generated at {2019,8,14} {21,21,55}
+{release,{"nitrogen","2.3.1"},
+         {erts,"10.0.5"},
+         [{kernel,"6.0"},
+          {stdlib,"3.5.1"},
+          {sasl,"3.2"},
+          {crypto,"4.3.1"},
+          {runtime_tools,"1.13"},
+          {xmerl,"1.3.17"},
+          {compiler,"7.2.3"},
+          {asn1,"5.0.6"},
+          {public_key,"1.6.1"},
+          {ssl,"9.0"},
+          {common_test,"1.16"},
+          {parsetools,"2.1.7"}]}.
+
