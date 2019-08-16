@@ -95,7 +95,8 @@ save_link(Weblink) ->
     put_all(Data1).
 
 insert_link(Weblink, Data) ->
-    [Weblink|Data].
+    Weblink2 = id(Weblink, create_id()),
+    [Weblink2|Data].
 
 update_link(NewWeblink, Data) ->
     lists:map(fun(Weblink) ->

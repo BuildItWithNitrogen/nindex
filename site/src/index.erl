@@ -34,7 +34,7 @@ return_search_results() ->
 draw_links(Links) ->
     #panel{id=show_links, body=[
         #p{text="State 3: Return search results"},
-        lists:join(#br{}, [draw_link(Link) || Link <- Links])
+        [draw_link(Link) || Link <- Links]
     ]}.
 
 draw_link(Weblink) ->
@@ -44,7 +44,7 @@ draw_link(Weblink) ->
     EditUrl = "/add_edit/" ++ wf:to_list(LinkID),
     Menuid = wf:temp_id(),
     Linkwrapperid = wf:temp_id(),
-    [
+    #panel{id=Linkwrapperid, body=[
         #link {
             text=Text,
             click=#toggle{target=Menuid}
@@ -56,7 +56,7 @@ draw_link(Weblink) ->
             " | ",
             #link{text="delete", postback={delete, LinkID, Linkwrapperid}}
         ]}
-    ].
+    ]}.
 
 event(search) ->
     return_search_results();
