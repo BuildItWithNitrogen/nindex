@@ -22,6 +22,7 @@ start_link() ->
 %% ===================================================================
 
 init([]) ->
+    ni_links:init_db(),
     application:load(nitrogen_core),
     application:start(simple_cache),
     application:start(crypto),
