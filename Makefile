@@ -1,6 +1,6 @@
 .PHONY: fix-slim-release test
 
-all: get-deps plugins compile
+all: releases get-deps plugins compile
 
 REBAR?=./rebar -q
 
@@ -26,6 +26,9 @@ copy-static:
 
 plugins:
 	@(export PATH=`pwd`/`echo erts-*/bin`:$$PATH;escript do-plugins.escript)
+
+releases:
+	make fix-slim-release
 
 ## This is only applicable for slim releases
 fix-slim-release:
