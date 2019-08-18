@@ -26,7 +26,7 @@
 -record(weblink, {id, topic, descriptor, url}).
 
 init_db() ->
-    start().
+    ni_dets_sup:start().
 
 open_db() ->
     DB = dets_nindex,
