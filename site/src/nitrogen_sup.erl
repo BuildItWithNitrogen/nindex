@@ -22,11 +22,18 @@ start_link() ->
 %% ===================================================================
 
 init([]) ->
-    ni_links:init_db(),
     application:load(nitrogen_core),
     application:start(simple_cache),
     application:start(crypto),
     application:start(nprocreg),
     application:start(simple_bridge),
+    
+    DETSSup = #{
+        id=>ni_dets_sup,
+        start=>{ni_dets_sup, start_link, []},
+        shutdown=>2000,
+        type=>supervisor,
+        modules=>[ni_dets_sup]
+    },
 
-    {ok, { {one_for_one, 5, 10}, []} }.
+    {ok, { {one_for_one, 5, 10}, [DETSSup]} }.
