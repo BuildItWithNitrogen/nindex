@@ -21,7 +21,7 @@ get_all() ->
 
 get_link(ID) ->
     case db:map("select * from link where linkid=$1",[ID]) of
-        not_found -> undefined;
+        not_found -> new;
         Map -> Map
     end.
 
